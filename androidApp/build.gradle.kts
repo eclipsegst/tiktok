@@ -1,4 +1,4 @@
-val composeVersion = "1.0.2"
+val composeVersion = Versions.compose_version
 
 plugins {
     id("com.android.application")
@@ -22,11 +22,12 @@ dependencies {
 }
 
 android {
-    compileSdkVersion(31)
+    compileSdk = Versions.compile_sdk
     defaultConfig {
         applicationId = "com.zhaolongzhong.tiktok.android"
-        minSdkVersion(21)
-        targetSdkVersion(31)
+        minSdk = Versions.min_sdk
+        buildToolsVersion = Versions.build_tools
+        targetSdk = Versions.target_sdk
         versionCode = 1
         versionName = "1.0"
     }
