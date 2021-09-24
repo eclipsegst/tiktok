@@ -20,3 +20,7 @@ Declarative UIs with Kotlin MultiPlatform (D-KMP)](https://danielebaroncelli.med
 ### iOS: [SwiftUI](https://developer.apple.com/xcode/swiftui/)
 
 - [SwiftUI Tutorial](https://developer.apple.com/tutorials/swiftui)
+
+## Stack
+
+- [Ktor](https://github.com/ktorio/ktor): asynchronous HTTP client, [Getting started with a Ktor Client](https://ktor.io/docs/getting-started-ktor-client.html), [Add dependencies to Multiplatform](https://ktor.io/docs/http-client-multiplatform.html#add-dependencies)
