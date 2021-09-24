@@ -5,8 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import com.zhaolongzhong.tiktok.Greeting
+import com.zhaolongzhong.tiktok.datalayer.functions.getCountriesListData
 import com.zhaolongzhong.tiktok.viewmodel.debugLogger
-import com.zhaolongzhong.tiktok.webservice.apis.fetchCountriesList
 import kotlinx.coroutines.runBlocking
 
 fun greet(): String {
@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
         }
 
         runBlocking {
-            val result = model.repo.webservices.fetchCountriesList()
+            val result = model.repo.getCountriesListData()
             debugLogger.log("$result")
         }
     }
