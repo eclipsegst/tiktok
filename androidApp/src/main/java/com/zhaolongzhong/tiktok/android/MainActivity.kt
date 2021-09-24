@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import com.zhaolongzhong.tiktok.Greeting
+import com.zhaolongzhong.tiktok.viewmodel.debugLogger
+import com.zhaolongzhong.tiktok.webservice.apis.fetchCountriesList
 import kotlinx.coroutines.runBlocking
 
 fun greet(): String {
@@ -22,6 +24,11 @@ class MainActivity : ComponentActivity() {
 
         runBlocking {
             model.repo.webservices.getExampleResponse()
+        }
+
+        runBlocking {
+            val result = model.repo.webservices.fetchCountriesList()
+            debugLogger.log("$result")
         }
     }
 }
