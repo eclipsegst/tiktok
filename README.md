@@ -1,8 +1,9 @@
 # TikTok - sample
 
-This is TikTok clone app by using declarative UIs with Kotlin Multiplatform.
-It's inspired by [The future of apps:
-Declarative UIs with Kotlin MultiPlatform (D-KMP)](https://danielebaroncelli.medium.com/the-future-of-apps-declarative-uis-with-kotlin-multiplatform-d-kmp-part-1-3-c0e1530a5343), [Github Source Code](https://github.com/dbaroncelli/D-KMP-sample).
+This is TikTok clone app by using declarative UIs with Kotlin Multiplatform. It's inspired
+by [The future of apps:
+Declarative UIs with Kotlin MultiPlatform (D-KMP)](https://danielebaroncelli.medium.com/the-future-of-apps-declarative-uis-with-kotlin-multiplatform-d-kmp-part-1-3-c0e1530a5343)
+, [Github Source Code](https://github.com/dbaroncelli/D-KMP-sample).
 
 ## Kotlin Multiplatform
 
@@ -23,4 +24,8 @@ Declarative UIs with Kotlin MultiPlatform (D-KMP)](https://danielebaroncelli.med
 
 ## Stack
 
-- [Ktor](https://github.com/ktorio/ktor): asynchronous HTTP client, [Getting started with a Ktor Client](https://ktor.io/docs/getting-started-ktor-client.html), [Add dependencies to Multiplatform](https://ktor.io/docs/http-client-multiplatform.html#add-dependencies)
+- [Ktor](https://github.com/ktorio/ktor): asynchronous HTTP
+  client, [Getting started with a Ktor Client](https://ktor.io/docs/getting-started-ktor-client.html)
+  , [Add dependencies to Multiplatform](https://ktor.io/docs/http-client-multiplatform.html#add-dependencies)
+- [SQLDelight](https://cashapp.github.io/sqldelight/): generates typesafe kotlin APIs from your SQL
+  statements.
