@@ -9,6 +9,7 @@ import mylocal.db.LocalDb
 class Repository(val sqlDriver: SqlDriver, val useDefaultDispatcher: Boolean = true) {
     val webservices by lazy { ApiClient() } // TODO: make internal
     internal val localDb by lazy { LocalDb(sqlDriver) }
+    internal val sessionCache get() = SessionCacheObjects
 
     // we run each repository function on a Dispatchers.Default coroutine
     // we pass useDefaultDispatcher=false just for the TestRepository instance

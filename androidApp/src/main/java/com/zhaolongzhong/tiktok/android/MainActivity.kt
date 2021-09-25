@@ -3,17 +3,8 @@ package com.zhaolongzhong.tiktok.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import com.zhaolongzhong.tiktok.viewmodel.Screen
 import com.zhaolongzhong.tiktok.viewmodel.TViewModel
 
@@ -47,17 +38,11 @@ fun MainComposable(model: TViewModel) {
             )
         }
         Screen.Detail -> {
-            Text(
-                text = "Detail page",
-                modifier = Modifier
-                    .padding(top = 30.dp)
-                    .fillMaxWidth()
-                    .fillMaxHeight()
-                    .background(color = Color.Yellow)
-                    .clickable {
-                        navigation.navigate(Screen.List)
-                    }
-            )
+            CountryDetailScreen(
+                countryDetailState = model.stateManager.detailState.collectAsState().value,
+                onDismiss = {
+                    navigation.navigate(Screen.List)
+                })
         }
     }
 }
