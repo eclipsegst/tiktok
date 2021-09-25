@@ -2,12 +2,16 @@ package com.zhaolongzhong.tiktok.viewmodel
 
 import kotlinx.coroutines.flow.MutableStateFlow
 
-class Navigation {
+class Navigation(private val stateManager: StateManager) {
 
-    val screenState = MutableStateFlow(Screen.List)
+    val screenState = MutableStateFlow(ScreenIdentifier(Screen.List))
 
-    fun navigate(screen: Screen) {
-        screenState.value = screen
+    fun navigate(screenIdentifier: ScreenIdentifier) {
+        // TODO: handle better for initializing destination screen
+        if (screenIdentifier.screen == Screen.Detail) {
+            screenIdentifier.params?.let { stateManager.getCountryIn(it) }
+        }
+        screenState.value = screenIdentifier
     }
 }
 
@@ -17,3 +21,9 @@ enum class Screen(
     List("list"),
     Detail("detail")
 }
+
+
+class ScreenIdentifier(
+    val screen: Screen,
+    var params: String? = null
+)

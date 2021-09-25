@@ -2,6 +2,7 @@ package com.zhaolongzhong.tiktok.viewmodel
 
 import com.zhaolongzhong.tiktok.datalayer.Repository
 import com.zhaolongzhong.tiktok.datalayer.functions.getCountriesListData
+import com.zhaolongzhong.tiktok.datalayer.functions.getCountryInfo
 import com.zhaolongzhong.tiktok.viewmodel.screens.CountriesListState
 import com.zhaolongzhong.tiktok.viewmodel.screens.CountryDetailState
 import com.zhaolongzhong.tiktok.viewmodel.screens.CountryInfo
@@ -11,7 +12,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class StateManager(repo: Repository) {
+class StateManager(private val repo: Repository) {
     var countryListScreenState =
         MutableStateFlow(CountriesListState(isLoading = true, countriesListItems = emptyList()))
 
@@ -24,6 +25,13 @@ class StateManager(repo: Repository) {
             val result = repo.getCountriesListData()
             countryListScreenState.value =
                 CountriesListState(isLoading = false, countriesListItems = result)
+        }
+    }
+
+    fun getCountryIn(name: String) {
+        CoroutineScope(Job() + Dispatchers.Main).launch {
+            val result = repo.getCountryInfo(name)
+            detailState.value = detailState.value.copy(isLoading = false, countryInfo = result)
         }
     }
 }

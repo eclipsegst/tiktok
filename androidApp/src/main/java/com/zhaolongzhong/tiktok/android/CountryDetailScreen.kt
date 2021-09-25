@@ -1,5 +1,6 @@
 package com.zhaolongzhong.tiktok.android
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,15 +17,16 @@ import com.zhaolongzhong.tiktok.viewmodel.screens.CountryDetailState
 @Composable
 fun CountryDetailScreen(
     countryDetailState: CountryDetailState,
-    onDismiss: (String) -> Unit
+    onDismiss: () -> Unit
 ) {
-
     if (countryDetailState.isLoading) {
         LoadingScreen()
     } else {
         val data = countryDetailState.countryInfo
         Column(modifier = Modifier.padding(10.dp)) {
-
+            Text(text = "Back", modifier = Modifier
+                .padding(10.dp)
+                .clickable { onDismiss() })
             DataElement("total population", data.population)
             DataElement("   with first dose", data.firstDoses, data.firstDosesPerc)
             DataElement("   fully vaccinated", data.fullyVaccinated, data.fullyVaccinatedPerc)
@@ -44,7 +46,6 @@ fun CountryDetailScreen(
         }
     }
 }
-
 
 @Composable
 fun DataElement(label: String, value: String = "", percentage: String = "") {

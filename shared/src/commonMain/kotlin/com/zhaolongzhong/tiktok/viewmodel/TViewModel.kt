@@ -12,6 +12,6 @@ class TViewModel(val repo: Repository) {
         // factory methods are defined in the platform-specific shared code (androidMain and iosMain)
     }
 
-    val navigation by lazy { Navigation() }
     val stateManager by lazy { StateManager(repo) }
+    val navigation by lazy { Navigation(stateManager) }
 }
