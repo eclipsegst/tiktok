@@ -39,7 +39,7 @@ fun MainComposable(model: TViewModel) {
     when (navigation.screenState.collectAsState().value) {
         Screen.List -> {
             CountriesListScreen(
-                countriesListState = model.countryListScreenState.collectAsState().value,
+                countriesListState = model.stateManager.countryListScreenState.collectAsState().value,
                 onListItemClick = {
                     navigation.navigate(Screen.Detail)
                 },
