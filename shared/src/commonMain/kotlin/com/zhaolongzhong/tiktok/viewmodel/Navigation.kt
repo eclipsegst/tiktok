@@ -9,7 +9,7 @@ class Navigation(private val stateManager: StateManager) {
     fun navigate(screenIdentifier: ScreenIdentifier) {
         // TODO: handle better for initializing destination screen
         if (screenIdentifier.screen == Screen.Detail) {
-            screenIdentifier.params?.let { stateManager.getCountryIn(it) }
+            screenIdentifier.params?.let { stateManager.getCountryInfo(it) }
         }
         screenState.value = screenIdentifier
     }

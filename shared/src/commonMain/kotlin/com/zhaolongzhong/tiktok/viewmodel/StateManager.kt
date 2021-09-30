@@ -28,7 +28,7 @@ class StateManager(private val repo: Repository) {
         }
     }
 
-    fun getCountryIn(name: String) {
+    fun getCountryInfo(name: String) {
         CoroutineScope(Job() + Dispatchers.Main).launch {
             val result = repo.getCountryInfo(name)
             detailState.value = detailState.value.copy(isLoading = false, countryInfo = result)
