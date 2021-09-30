@@ -2,7 +2,7 @@ package com.zhaolongzhong.tiktok.datalayer.functions
 
 import com.zhaolongzhong.tiktok.datalayer.Repository
 import com.zhaolongzhong.tiktok.datalayer.localdb.countries.getCountriesList
-import com.zhaolongzhong.tiktok.viewmodel.screens.CountryInfo
+import com.zhaolongzhong.tiktok.viewmodel.screens.country_detail.CountryInfo
 import com.zhaolongzhong.tiktok.webservice.apis.fetchCountryExtraData
 
 suspend fun Repository.getCountryInfo(country: String): CountryInfo = withRepoContext {

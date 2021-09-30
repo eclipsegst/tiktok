@@ -27,8 +27,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.zhaolongzhong.tiktok.viewmodel.screens.CountriesListItem
-import com.zhaolongzhong.tiktok.viewmodel.screens.CountriesListState
+import com.zhaolongzhong.tiktok.viewmodel.screens.country_list.CountriesListItem
+import com.zhaolongzhong.tiktok.viewmodel.screens.country_list.CountriesListState
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

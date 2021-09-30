@@ -1,12 +1,13 @@
-package com.zhaolongzhong.tiktok.viewmodel.screens
+package com.zhaolongzhong.tiktok.viewmodel.screens.country_detail
 
 import com.zhaolongzhong.tiktok.datalayer.objects.CountryExtraData
 import com.zhaolongzhong.tiktok.datalayer.objects.CountryListData
+import com.zhaolongzhong.tiktok.viewmodel.ScreenState
 
 data class CountryDetailState(
     val isLoading: Boolean = false,
     val countryInfo: CountryInfo = CountryInfo(),
-)
+) : ScreenState
 
 data class CountryInfo(
     val _listData: CountryListData = CountryListData(),

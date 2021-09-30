@@ -4,7 +4,7 @@ import com.zhaolongzhong.tiktok.datalayer.Repository
 import com.zhaolongzhong.tiktok.datalayer.localdb.countries.getCountriesList
 import com.zhaolongzhong.tiktok.datalayer.localdb.countries.setCountriesList
 import com.zhaolongzhong.tiktok.viewmodel.debugLogger
-import com.zhaolongzhong.tiktok.viewmodel.screens.CountriesListItem
+import com.zhaolongzhong.tiktok.viewmodel.screens.country_list.CountriesListItem
 import com.zhaolongzhong.tiktok.webservice.apis.fetchCountriesList
 
 suspend fun Repository.getCountriesListData(): List<CountriesListItem> = withRepoContext {

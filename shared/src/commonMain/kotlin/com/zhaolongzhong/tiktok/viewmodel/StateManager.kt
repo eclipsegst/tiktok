@@ -3,9 +3,9 @@ package com.zhaolongzhong.tiktok.viewmodel
 import com.zhaolongzhong.tiktok.datalayer.Repository
 import com.zhaolongzhong.tiktok.datalayer.functions.getCountriesListData
 import com.zhaolongzhong.tiktok.datalayer.functions.getCountryInfo
-import com.zhaolongzhong.tiktok.viewmodel.screens.CountriesListState
-import com.zhaolongzhong.tiktok.viewmodel.screens.CountryDetailState
-import com.zhaolongzhong.tiktok.viewmodel.screens.CountryInfo
+import com.zhaolongzhong.tiktok.viewmodel.screens.country_detail.CountryDetailState
+import com.zhaolongzhong.tiktok.viewmodel.screens.country_detail.CountryInfo
+import com.zhaolongzhong.tiktok.viewmodel.screens.country_list.CountriesListState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -26,6 +26,10 @@ class StateManager(private val repo: Repository) {
             countryListScreenState.value =
                 CountriesListState(isLoading = false, countriesListItems = result)
         }
+    }
+
+    fun setDetailState(countryDetailState: CountryDetailState) {
+        detailState.value = countryDetailState
     }
 
     fun getCountryInfo(name: String) {
