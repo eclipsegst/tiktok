@@ -1,4 +1,4 @@
-val composeVersion = Versions.compose_version
+val composeVersion = Versions.composeVersion
 
 plugins {
     id("com.android.application")
@@ -22,12 +22,11 @@ dependencies {
 }
 
 android {
-    compileSdk = Versions.compile_sdk
+    compileSdk = Versions.compileSdkVersion
     defaultConfig {
         applicationId = "com.zhaolongzhong.tiktok.android"
-        minSdk = Versions.min_sdk
-        buildToolsVersion = Versions.build_tools
-        targetSdk = Versions.target_sdk
+        minSdk = Versions.minSdkVersion
+        targetSdk = Versions.targetSdkVersion
         versionCode = 1
         versionName = "1.0"
     }
@@ -37,8 +36,8 @@ android {
         }
     }
     lint {
-        isWarningsAsErrors = true
-        isAbortOnError = true
+//        isWarningsAsErrors = true
+//        isAbortOnError = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
