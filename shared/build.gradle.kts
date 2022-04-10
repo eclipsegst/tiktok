@@ -26,13 +26,26 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:${Versions.kotlinxDatetime}")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinxCoroutinesNative}-native-mt")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinxSerialization}")
-                implementation("io.ktor:ktor-client-core:${Versions.ktor}")
-                implementation("io.ktor:ktor-client-cio:${Versions.ktor}")
+                implementation("io.ktor:ktor-client-core:${Versions.ktor}") {
+                    // Reference: https://github.com/ktorio/ktor/issues/1538
+                    exclude(
+                        group = "org.jetbrains.kotlinx",
+                        module = "kotlinx-coroutines-core-common"
+                    )
+                }
+
                 implementation("io.ktor:ktor-client-json:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-logging:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-serialization:${Versions.ktor}")
             }
         }
+
+        val jvmMain by creating {
+            dependencies {
+                implementation("io.ktor:ktor-client-cio:${Versions.ktor}")
+            }
+        }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -40,6 +53,7 @@ kotlin {
             }
         }
         val androidMain by getting {
+            dependsOn(jvmMain)
             dependencies {
                 implementation("io.ktor:ktor-client-android:${Versions.ktor}")
                 implementation("com.squareup.sqldelight:android-driver:${Versions.sqlDelight}")
@@ -57,7 +71,17 @@ kotlin {
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
             dependencies {
-                implementation("io.ktor:ktor-client-ios:${Versions.ktor}")
+                implementation("io.ktor:ktor-client-ios:${Versions.ktor}") {
+                    // Reference: https://github.com/ktorio/ktor/issues/1538
+                    exclude(
+                        group = "org.jetbrains.kotlinx",
+                        module = "kotlinx-coroutines-core-native"
+                    )
+                    exclude(
+                        group = "org.jetbrains.kotlinx",
+                        module = "kotlinx-coroutines-core-common"
+                    )
+                }
                 implementation("com.squareup.sqldelight:native-driver:${Versions.sqlDelight}")
             }
             dependsOn(commonMain)

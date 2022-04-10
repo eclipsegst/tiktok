@@ -10,15 +10,17 @@ object Versions {
 
     // Compose to Kotlin Compatibility Map:
     // https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-    const val composeVersion = "1.1.0-beta03"
+    const val composeVersion = "1.1.1"
     const val junit = "4.13.2"
-    const val kotlin = "1.5.31"
-    const val ktor = "1.6.5"
+    const val kotlin = "1.6.10"
+    // https://github.com/ktorio/ktor/releases
+    const val ktor = "1.6.8"
     // Multithreaded coroutines:
     // https://kotlinlang.org/docs/multiplatform-mobile-concurrency-and-coroutines.html#multithreaded-coroutines
     // https://github.com/Kotlin/kotlinx.coroutines
-    const val kotlinxCoroutinesNative = "1.5.2"
-    const val kotlinxDatetime = "0.3.0"
+    const val kotlinxCoroutinesNative = "1.6.0"
+    // https://github.com/Kotlin/kotlinx-datetime/releases
+    const val kotlinxDatetime = "0.3.2"
     const val kotlinxSerialization = "1.3.1"
     const val sqlDelight = "1.5.3"
 }
