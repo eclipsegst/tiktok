@@ -13,6 +13,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
 class StateManager(private val repo: Repository) {
+    internal val mutableStateFlow = MutableStateFlow(AppState())
+
     var countryListScreenState =
         MutableStateFlow(CountriesListState(isLoading = true, countriesListItems = emptyList()))
 
@@ -28,6 +30,10 @@ class StateManager(private val repo: Repository) {
         }
     }
 
+    fun triggerRecomposition() {
+        mutableStateFlow.value = AppState(mutableStateFlow.value.recompositionIndex+1)
+    }
+
     fun setDetailState(countryDetailState: CountryDetailState) {
         detailState.value = countryDetailState
     }
@@ -39,3 +45,7 @@ class StateManager(private val repo: Repository) {
         }
     }
 }
+
+data class AppState(
+    val recompositionIndex : Int = 0,
+)
