@@ -27,6 +27,7 @@ class StateManager(private val repo: Repository) {
             val result = repo.getCountriesListData()
             countryListScreenState.value =
                 CountriesListState(isLoading = false, countriesListItems = result)
+            triggerRecomposition()
         }
     }
 

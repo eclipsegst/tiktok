@@ -2,10 +2,12 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
+    @EnvironmentObject var appObj: AppObservableObject
 	let greet = Greeting().greeting()
 
 	var body: some View {
-		Text(greet)
+        let screenState = appObj.nav.stateProvider.getToCast(screenIdentifier: ScreenIdentifier(screen: .list, params: nil)) as! CountriesListState
+		Text(greet + "\(screenState.countriesListItems)")
 	}
 }
 

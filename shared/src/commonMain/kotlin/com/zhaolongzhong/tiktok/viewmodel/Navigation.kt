@@ -9,6 +9,8 @@ class Navigation(private val stateManager: StateManager) {
 
     val screenState = MutableStateFlow(ScreenIdentifier(Screen.List))
 
+    val stateProvider by lazy { StateProvider(stateManager) }
+
     fun navigate(screenIdentifier: ScreenIdentifier) {
         // TODO: handle better for initializing destination screen
         if (screenIdentifier.screen == Screen.Detail) {
