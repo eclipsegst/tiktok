@@ -34,6 +34,10 @@ class StateManager(private val repo: Repository) {
         mutableStateFlow.value = AppState(mutableStateFlow.value.recompositionIndex+1)
     }
 
+    fun cancelScreenScopes() {
+        debugLogger.log("cancelScreenScopes")
+    }
+
     fun setDetailState(countryDetailState: CountryDetailState) {
         detailState.value = countryDetailState
     }

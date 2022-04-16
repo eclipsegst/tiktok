@@ -19,6 +19,21 @@ class Navigation(private val stateManager: StateManager) {
         }
         screenState.value = screenIdentifier
     }
+
+    fun onReEnterForeground() {
+        debugLogger.log("onReEnterForeground: recomposition is triggered")
+        stateManager.triggerRecomposition()
+    }
+
+    fun onEnterBackground() {
+        debugLogger.log("onEnterBackground: screen scopes are cancelled")
+        stateManager.cancelScreenScopes()
+    }
+
+    fun onChangeOrientation() {
+        debugLogger.log("onChangeOrientation: recomposition is triggered")
+        stateManager.triggerRecomposition()
+    }
 }
 
 enum class Screen(
