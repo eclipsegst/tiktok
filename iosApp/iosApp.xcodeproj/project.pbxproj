@@ -10,6 +10,8 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		DA0A487B280A692900466167 /* AppObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0A487A280A692900466167 /* AppObservableObject.swift */; };
+		DA8F1F21280E676700334A90 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F1F20280E676700334A90 /* LoadingScreen.swift */; };
+		DA8F1F23280E689E00334A90 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F1F22280E689E00334A90 /* BottomBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,8 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA0A487A280A692900466167 /* AppObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppObservableObject.swift; sourceTree = "<group>"; };
+		DA8F1F20280E676700334A90 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		DA8F1F22280E689E00334A90 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				DA0A487A280A692900466167 /* AppObservableObject.swift */,
+				DA8F1F20280E676700334A90 /* LoadingScreen.swift */,
+				DA8F1F22280E689E00334A90 /* BottomBar.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8F1F21280E676700334A90 /* LoadingScreen.swift in Sources */,
+				DA8F1F23280E689E00334A90 /* BottomBar.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				DA0A487B280A692900466167 /* AppObservableObject.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
