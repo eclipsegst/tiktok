@@ -12,12 +12,16 @@ class Navigation(private val stateManager: StateManager) {
     val stateProvider by lazy { StateProvider(stateManager) }
 
     fun navigate(screenIdentifier: ScreenIdentifier) {
-        // TODO: handle better for initializing destination screen
-        if (screenIdentifier.screen == Screen.Detail) {
-            screenIdentifier.params?.let { stateManager.getCountryInfo(it) }
-            val screenInitSettings = screenIdentifier.screen.initSettings(this, screenIdentifier)
-            val screenState = screenInitSettings.initState(screenIdentifier)
-            stateManager.setDetailState(screenState as CountryDetailState)
+        when (screenIdentifier.screen) {
+            Screen.List -> {
+                stateManager.getCountryList()
+            }
+            Screen.Detail -> {
+                screenIdentifier.params?.let { stateManager.getCountryInfo(it) }
+                val screenInitSettings = screenIdentifier.screen.initSettings(this, screenIdentifier)
+                val screenState = screenInitSettings.initState(screenIdentifier)
+                stateManager.setDetailState(screenState as CountryDetailState)
+            }
         }
         screenState.value = screenIdentifier
     }

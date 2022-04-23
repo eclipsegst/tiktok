@@ -22,16 +22,11 @@ class StateManager(private val repo: Repository) {
         MutableStateFlow(CountryDetailState(isLoading = true, countryInfo = CountryInfo()))
 
     init {
-        // TODO: handle coroutine scope properly
-        CoroutineScope(Job() + Dispatchers.Main).launch {
-            val result = repo.getCountriesListData()
-            countryListScreenState.value =
-                CountriesListState(isLoading = false, countriesListItems = result)
-            triggerRecomposition()
-        }
+        getCountryList()
     }
 
     fun triggerRecomposition() {
+        debugLogger.log("triggerRecomposition")
         mutableStateFlow.value = AppState(mutableStateFlow.value.recompositionIndex+1)
     }
 
@@ -39,12 +34,25 @@ class StateManager(private val repo: Repository) {
         debugLogger.log("cancelScreenScopes")
     }
 
+    private fun launchWithDefaultScope(block: suspend CoroutineScope.() -> Unit) {
+        CoroutineScope(Job() + Dispatchers.Main).launch(block = block)
+    }
+
+    fun getCountryList() {
+        launchWithDefaultScope {
+            val result = repo.getCountriesListData()
+            countryListScreenState.value =
+                CountriesListState(isLoading = false, countriesListItems = result)
+            triggerRecomposition()
+        }
+    }
+
     fun setDetailState(countryDetailState: CountryDetailState) {
         detailState.value = countryDetailState
     }
 
     fun getCountryInfo(name: String) {
-        CoroutineScope(Job() + Dispatchers.Main).launch {
+        launchWithDefaultScope {
             val result = repo.getCountryInfo(name)
             detailState.value = detailState.value.copy(isLoading = false, countryInfo = result)
         }
