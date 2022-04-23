@@ -12,6 +12,9 @@
 		DA0A487B280A692900466167 /* AppObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0A487A280A692900466167 /* AppObservableObject.swift */; };
 		DA8F1F21280E676700334A90 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F1F20280E676700334A90 /* LoadingScreen.swift */; };
 		DA8F1F23280E689E00334A90 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F1F22280E689E00334A90 /* BottomBar.swift */; };
+		DAA6F04B2814561000AB627F /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6F04A2814561000AB627F /* HomeScreen.swift */; };
+		DAA6F04D281456F100AB627F /* MeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6F04C281456F100AB627F /* MeScreen.swift */; };
+		DAA6F04F28145AF300AB627F /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6F04E28145AF300AB627F /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +38,9 @@
 		DA0A487A280A692900466167 /* AppObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppObservableObject.swift; sourceTree = "<group>"; };
 		DA8F1F20280E676700334A90 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		DA8F1F22280E689E00334A90 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
+		DAA6F04A2814561000AB627F /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		DAA6F04C281456F100AB627F /* MeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeScreen.swift; sourceTree = "<group>"; };
+		DAA6F04E28145AF300AB627F /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +74,13 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				7555FF82242A565900829871 /* ContentView.swift */,
-				7555FF8C242A565B00829871 /* Info.plist */,
+				DAA6F050281462A700AB627F /* screens */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				DA0A487A280A692900466167 /* AppObservableObject.swift */,
+				7555FF82242A565900829871 /* ContentView.swift */,
 				DA8F1F20280E676700334A90 /* LoadingScreen.swift */,
 				DA8F1F22280E689E00334A90 /* BottomBar.swift */,
+				7555FF8C242A565B00829871 /* Info.plist */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -83,6 +90,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAA6F050281462A700AB627F /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				DAA6F04A2814561000AB627F /* HomeScreen.swift */,
+				DAA6F04C281456F100AB627F /* MeScreen.swift */,
+				DAA6F04E28145AF300AB627F /* SettingsScreen.swift */,
+			);
+			path = screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,8 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA6F04F28145AF300AB627F /* SettingsScreen.swift in Sources */,
 				DA8F1F21280E676700334A90 /* LoadingScreen.swift in Sources */,
+				DAA6F04D281456F100AB627F /* MeScreen.swift in Sources */,
 				DA8F1F23280E689E00334A90 /* BottomBar.swift in Sources */,
+				DAA6F04B2814561000AB627F /* HomeScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				DA0A487B280A692900466167 /* AppObservableObject.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,

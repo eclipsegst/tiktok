@@ -7,21 +7,23 @@
 
 import SwiftUI
 
-@ViewBuilder func bottomBar(selectedTab: Int = 0, onTap: @escaping ((Int) -> Void)) -> some View {
+@ViewBuilder func bottomBar(selectedTab: ScreenState, onTap: @escaping ((ScreenState) -> Void)) -> some View {
     Spacer()
+    // iconName:
+    // https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-images/
     BottomBarButton(
         itemLabel: "Home",
-        iconName: "list.bullet",
-        selected: selectedTab == 0,
-        onClick: { onTap(0) }
+        iconName: "house",
+        selected: selectedTab == .home,
+        onClick: { onTap(.home) }
     )
     Spacer()
     BottomBarButton(
-        itemLabel: "About",
-        iconName: "list.bullet",
-        selected: selectedTab == 1,
+        itemLabel: "Me",
+        iconName: "person",
+        selected: selectedTab == .me,
         onClick: {
-            onTap(1)
+            onTap(.me)
         }
     )
     Spacer()
