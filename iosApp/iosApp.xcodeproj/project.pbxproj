@@ -10,6 +10,7 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		DA0A487B280A692900466167 /* AppObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0A487A280A692900466167 /* AppObservableObject.swift */; };
+		DA16282228163149002BF9A2 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16282128163149002BF9A2 /* TextField.swift */; };
 		DA589338281505580078DD10 /* DebugSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA589337281505580078DD10 /* DebugSettingsScreen.swift */; };
 		DA58933A28150BF80078DD10 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA58933928150BF80078DD10 /* WelcomeScreen.swift */; };
 		DA58933C28150C630078DD10 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA58933B28150C630078DD10 /* SignInScreen.swift */; };
@@ -41,6 +42,7 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA0A487A280A692900466167 /* AppObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppObservableObject.swift; sourceTree = "<group>"; };
+		DA16282128163149002BF9A2 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		DA589337281505580078DD10 /* DebugSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettingsScreen.swift; sourceTree = "<group>"; };
 		DA58933928150BF80078DD10 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		DA58933B28150C630078DD10 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				DA16282028163134002BF9A2 /* components */,
 				DAA6F050281462A700AB627F /* screens */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				DA0A487A280A692900466167 /* AppObservableObject.swift */,
@@ -100,6 +103,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA16282028163134002BF9A2 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				DA16282128163149002BF9A2 /* TextField.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 		DAA6F050281462A700AB627F /* screens */ = {
@@ -210,6 +221,7 @@
 				DA58933E28150C710078DD10 /* SignUpScreen.swift in Sources */,
 				DAA6F04F28145AF300AB627F /* SettingsScreen.swift in Sources */,
 				DA8F1F21280E676700334A90 /* LoadingScreen.swift in Sources */,
+				DA16282228163149002BF9A2 /* TextField.swift in Sources */,
 				DAA6F04D281456F100AB627F /* MeScreen.swift in Sources */,
 				DA8F1F23280E689E00334A90 /* BottomBar.swift in Sources */,
 				DAA6F04B2814561000AB627F /* HomeScreen.swift in Sources */,

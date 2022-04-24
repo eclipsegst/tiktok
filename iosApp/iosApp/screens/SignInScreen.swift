@@ -8,13 +8,13 @@
 import SwiftUI
 import shared
 
+class SignInObservableObject: ObservableObject {
+    @Published var username = ""
+    @Published var password = ""
+}
+
 struct SignInScreen: View {
-    
-    @State var email = ""
-    @State var password = ""
-    @State var passwordVisible = false
-    
-    let borderColor = Color.blue
+    @ObservedObject var observedObject = SignInObservableObject()
         
     var body: some View{
         VStack(){
@@ -23,34 +23,9 @@ struct SignInScreen: View {
                 .fontWeight(.bold)
                 .padding(.bottom, 200)
             
-            TextField("Username or Email",text:self.$email)
-                .autocapitalization(.none)
-                .padding()
-                .background(RoundedRectangle(cornerRadius:6).stroke(borderColor, lineWidth: 2))
-                .padding(.top, 0)
+            RectangleTextField(fieldHint: "Username or Email", nameOfField: $observedObject.username)
             
-            HStack(spacing: 10){
-                VStack{
-                    if self.passwordVisible {
-                        TextField("Password", text: self.$password)
-                            .autocapitalization(.none)
-                    } else {
-                        SecureField("Password", text: self.$password)
-                            .autocapitalization(.none)
-                    }
-                }
-                
-                Button(action: {
-                    self.passwordVisible.toggle()
-                }) {
-                    Image(systemName: self.passwordVisible ? "eye.slash.fill" : "eye.fill")
-                        .foregroundColor(Color.black.opacity(0.7))
-                        .opacity(0.6)
-                }
-            }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 6).stroke(borderColor, lineWidth: 2))
-            .padding(.top, 10)
+            PasswordField(fieldHint: "Password", nameOfField: $observedObject.password)
             
             HStack{
                 Spacer()
@@ -92,7 +67,7 @@ struct SignInScreen: View {
     }
     
     func signIn() {
-        print("sign in with email: \(email)")
+        print("Sign in with username: \(observedObject.username)")
     }
             
     func resetPassword() {
@@ -102,11 +77,6 @@ struct SignInScreen: View {
 
 struct SignInScreen_Previews: PreviewProvider {
     static var previews: some View {
-        if #available(iOS 15.0, *) {
-            SignInScreen()
-                .previewInterfaceOrientation(.portrait)
-        } else {
-            // Fallback on earlier versions
-        }
+        SignInScreen()
     }
 }
