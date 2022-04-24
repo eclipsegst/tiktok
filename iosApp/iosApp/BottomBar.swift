@@ -27,6 +27,15 @@ import SwiftUI
         }
     )
     Spacer()
+    BottomBarButton(
+        itemLabel: "Debug",
+        iconName: "gearshape",
+        selected: selectedTab == .debugSettings,
+        onClick: {
+            onTap(.debugSettings)
+        }
+    )
+    Spacer()
 }
 
 struct BottomBarButton: View {

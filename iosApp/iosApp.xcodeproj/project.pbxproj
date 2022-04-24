@@ -10,6 +10,10 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		DA0A487B280A692900466167 /* AppObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0A487A280A692900466167 /* AppObservableObject.swift */; };
+		DA589338281505580078DD10 /* DebugSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA589337281505580078DD10 /* DebugSettingsScreen.swift */; };
+		DA58933A28150BF80078DD10 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA58933928150BF80078DD10 /* WelcomeScreen.swift */; };
+		DA58933C28150C630078DD10 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA58933B28150C630078DD10 /* SignInScreen.swift */; };
+		DA58933E28150C710078DD10 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA58933D28150C710078DD10 /* SignUpScreen.swift */; };
 		DA8F1F21280E676700334A90 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F1F20280E676700334A90 /* LoadingScreen.swift */; };
 		DA8F1F23280E689E00334A90 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F1F22280E689E00334A90 /* BottomBar.swift */; };
 		DAA6F04B2814561000AB627F /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6F04A2814561000AB627F /* HomeScreen.swift */; };
@@ -37,6 +41,10 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA0A487A280A692900466167 /* AppObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppObservableObject.swift; sourceTree = "<group>"; };
+		DA589337281505580078DD10 /* DebugSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettingsScreen.swift; sourceTree = "<group>"; };
+		DA58933928150BF80078DD10 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		DA58933B28150C630078DD10 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
+		DA58933D28150C710078DD10 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		DA8F1F20280E676700334A90 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		DA8F1F22280E689E00334A90 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		DAA6F04A2814561000AB627F /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -101,6 +109,10 @@
 				DAA6F04C281456F100AB627F /* MeScreen.swift */,
 				DAA6F04E28145AF300AB627F /* SettingsScreen.swift */,
 				DAA6F051281466A500AB627F /* DetailScreen.swift */,
+				DA589337281505580078DD10 /* DebugSettingsScreen.swift */,
+				DA58933928150BF80078DD10 /* WelcomeScreen.swift */,
+				DA58933B28150C630078DD10 /* SignInScreen.swift */,
+				DA58933D28150C710078DD10 /* SignUpScreen.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -195,12 +207,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA58933E28150C710078DD10 /* SignUpScreen.swift in Sources */,
 				DAA6F04F28145AF300AB627F /* SettingsScreen.swift in Sources */,
 				DA8F1F21280E676700334A90 /* LoadingScreen.swift in Sources */,
 				DAA6F04D281456F100AB627F /* MeScreen.swift in Sources */,
 				DA8F1F23280E689E00334A90 /* BottomBar.swift in Sources */,
 				DAA6F04B2814561000AB627F /* HomeScreen.swift in Sources */,
+				DA58933C28150C630078DD10 /* SignInScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				DA589338281505580078DD10 /* DebugSettingsScreen.swift in Sources */,
+				DA58933A28150BF80078DD10 /* WelcomeScreen.swift in Sources */,
 				DA0A487B280A692900466167 /* AppObservableObject.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				DAA6F052281466A500AB627F /* DetailScreen.swift in Sources */,

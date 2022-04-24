@@ -12,6 +12,8 @@ struct ContentView: View {
                 HomeScreen()
             case .me:
                 MeScreen()
+            case .debugSettings:
+                DebugSettingsScreen()
             }
         }
         .toolbar {
@@ -33,4 +35,5 @@ struct ContentView_Previews: PreviewProvider {
 public enum ScreenState: Equatable {
     case home
     case me
+    case debugSettings
 }
