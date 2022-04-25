@@ -14,6 +14,7 @@ class SignInObservableObject: ObservableObject {
 }
 
 struct SignInScreen: View {
+    @EnvironmentObject var appObj: AppObservableObject
     @ObservedObject var observedObject = SignInObservableObject()
         
     var body: some View{
@@ -68,6 +69,7 @@ struct SignInScreen: View {
     
     func signIn() {
         print("Sign in with username: \(observedObject.username)")
+        appObj.model.stateManager.signIn(username: "", password: "")
     }
             
     func resetPassword() {
