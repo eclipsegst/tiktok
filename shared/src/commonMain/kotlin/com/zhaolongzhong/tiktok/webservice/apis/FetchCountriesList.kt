@@ -6,7 +6,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 suspend fun ApiClient.fetchCountriesList(): CountriesListResponse? {
-    return getResponse("/dkmpl/")
+    return getResponse(baseUrlCovid, "/dkmpl/")
 }
 
 @Serializable

@@ -3,6 +3,8 @@ package com.zhaolongzhong.tiktok.viewmodel
 import com.zhaolongzhong.tiktok.datalayer.Repository
 import com.zhaolongzhong.tiktok.datalayer.functions.getCountriesListData
 import com.zhaolongzhong.tiktok.datalayer.functions.getCountryInfo
+import com.zhaolongzhong.tiktok.datalayer.functions.signIn
+import com.zhaolongzhong.tiktok.datalayer.functions.signUp
 import com.zhaolongzhong.tiktok.viewmodel.screens.country_detail.CountryDetailState
 import com.zhaolongzhong.tiktok.viewmodel.screens.country_detail.CountryInfo
 import com.zhaolongzhong.tiktok.viewmodel.screens.country_list.CountriesListState
@@ -55,6 +57,18 @@ class StateManager(private val repo: Repository) {
         launchWithDefaultScope {
             val result = repo.getCountryInfo(name)
             detailState.value = detailState.value.copy(isLoading = false, countryInfo = result)
+        }
+    }
+
+    fun signUp(username: String, password: String) {
+        launchWithDefaultScope {
+            repo.signUp(username= username, password = password)
+        }
+    }
+
+    fun signIn(username: String, password: String) {
+        launchWithDefaultScope {
+            repo.signIn(username= username, password = password)
         }
     }
 }

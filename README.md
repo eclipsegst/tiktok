@@ -22,6 +22,9 @@ Declarative UIs with Kotlin MultiPlatform (D-KMP)](https://danielebaroncelli.med
 
 - [SwiftUI Tutorial](https://developer.apple.com/tutorials/swiftui)
 
+## Backend
+- Auth: [spring-boot-kotlin](https://github.com/eclipsegst/spring-boot-kotlin)
+
 ## Stack
 
 - [Ktor](https://github.com/ktorio/ktor): asynchronous HTTP

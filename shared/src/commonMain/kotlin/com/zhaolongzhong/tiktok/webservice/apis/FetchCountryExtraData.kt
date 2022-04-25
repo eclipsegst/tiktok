@@ -6,7 +6,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 suspend fun ApiClient.fetchCountryExtraData(country: String): CountryExtraResponse? {
-    return getResponse("/dkmpd/" + country.replace(" ", "_"))
+    return getResponse(baseUrlCovid, "/dkmpd/" + country.replace(" ", "_"))
 }
 
 @Serializable

@@ -15,6 +15,7 @@ class SignUpObservableObject: ObservableObject {
 }
 
 struct SignUpScreen: View {
+    @EnvironmentObject var appObj: AppObservableObject
     @ObservedObject var observedObject = SignUpObservableObject()
         
     var body: some View{
@@ -49,6 +50,7 @@ struct SignUpScreen: View {
     
     func register(){
         print("Register with username: \(observedObject.username)")
+        appObj.model.stateManager.signUp(username: observedObject.username, password: observedObject.password)
     }
 }
 
