@@ -11,6 +11,7 @@ import SwiftUI
     Spacer()
     // iconName:
     // https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-images/
+    // https://developer.apple.com/sf-symbols/
     BottomBarButton(
         itemLabel: "Home",
         iconName: "house",
