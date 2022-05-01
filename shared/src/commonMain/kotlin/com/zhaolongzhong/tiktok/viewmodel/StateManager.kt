@@ -1,18 +1,12 @@
 package com.zhaolongzhong.tiktok.viewmodel
 
-import com.zhaolongzhong.tiktok.datalayer.Repository
-import com.zhaolongzhong.tiktok.datalayer.functions.getCountriesListData
-import com.zhaolongzhong.tiktok.datalayer.functions.getCountryInfo
-import com.zhaolongzhong.tiktok.datalayer.functions.signIn
-import com.zhaolongzhong.tiktok.datalayer.functions.signUp
-import com.zhaolongzhong.tiktok.viewmodel.screens.country_detail.CountryDetailState
-import com.zhaolongzhong.tiktok.viewmodel.screens.country_detail.CountryInfo
-import com.zhaolongzhong.tiktok.viewmodel.screens.country_list.CountriesListState
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.launch
+import com.zhaolongzhong.tiktok.*
+import com.zhaolongzhong.tiktok.datalayer.*
+import com.zhaolongzhong.tiktok.datalayer.functions.*
+import com.zhaolongzhong.tiktok.viewmodel.screens.country_detail.*
+import com.zhaolongzhong.tiktok.viewmodel.screens.country_list.*
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 
 class StateManager(private val repo: Repository) {
     internal val mutableStateFlow = MutableStateFlow(AppState())
@@ -62,7 +56,17 @@ class StateManager(private val repo: Repository) {
 
     fun signUp(username: String, password: String) {
         launchWithDefaultScope {
-            repo.signUp(username= username, password = password)
+            repo.signUp(username= username, password = password) {
+                when (it) {
+                    is Callback.Success -> {
+                        print("Start sign in after sign up")
+                        signIn(username = username, password = password)
+                    }
+                    is Callback.Failure -> {
+                        print("Sign up failed: ${it.message}")
+                    }
+                }
+            }
         }
     }
 

@@ -1,11 +1,11 @@
 package com.zhaolongzhong.tiktok.webservice.apis
 
-import com.zhaolongzhong.tiktok.webservice.ApiClient
+import com.zhaolongzhong.tiktok.*
+import com.zhaolongzhong.tiktok.webservice.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.util.*
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import kotlinx.serialization.*
 
 // Auth flow:
 // Make sure to have a client credential to make a request
@@ -38,16 +38,20 @@ suspend fun ApiClient.signIn(username: String, password: String): AccessTokenRes
 
 @Serializable
 data class AccessTokenResponse(
-    @SerialName("access_token") val accessToken : String = "",
-    @SerialName("token_type") val tokenType : String = "",
-    @SerialName("refresh_token") val refreshToken : String = "",
-    @SerialName("expires_in") val expiresIn : Long = 0,
-    @SerialName("scope") val scope : String = "",
-    @SerialName("jti") val jti : String = "",
+    @SerialName("access_token") val accessToken: String = "",
+    @SerialName("token_type") val tokenType: String = "",
+    @SerialName("refresh_token") val refreshToken: String = "",
+    @SerialName("expires_in") val expiresIn: Long = 0,
+    @SerialName("scope") val scope: String = "",
+    @SerialName("jti") val jti: String = "",
 )
 
 @OptIn(InternalAPI::class)
-suspend fun ApiClient.signUp(username: String, password: String) {
+suspend fun ApiClient.signUp(
+    username: String,
+    password: String,
+    callback: (Callback<Unit>) -> Unit = {}
+) {
     val httpRequestBuilder = HttpRequestBuilder().apply {
         url("$baseUrl/auth/signup")
         method = HttpMethod.Post
@@ -59,7 +63,7 @@ suspend fun ApiClient.signUp(username: String, password: String) {
         body = SignUpRequest(username = username, password = password, enabled = true)
     }
 
-    request<Unit>(httpRequestBuilder)
+    request<Unit>(httpRequestBuilder, callback = callback)
 }
 
 @Serializable

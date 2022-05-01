@@ -1,6 +1,7 @@
 package com.zhaolongzhong.tiktok.webservice
 
-import com.zhaolongzhong.tiktok.viewmodel.debugLogger
+import com.zhaolongzhong.tiktok.*
+import com.zhaolongzhong.tiktok.viewmodel.*
 import io.ktor.client.*
 import io.ktor.client.features.auth.*
 import io.ktor.client.features.json.*
@@ -35,18 +36,19 @@ class ApiClient {
     }
 
     @OptIn(InternalAPI::class)
-    suspend inline fun <reified T : Any> request(httpRequestBuilder: HttpRequestBuilder): T? {
+    suspend inline fun <reified T : Any> request(httpRequestBuilder: HttpRequestBuilder, callback: (Callback<T>) -> Unit = {}): T? {
         val url = httpRequestBuilder.url
         try {
             // please notice, Ktor Client is switching to a background thread under the hood
             // so the http call doesn't happen on the main thread, even if the coroutine has been launched on Dispatchers.Main
             val response = authClient.request<T>(httpRequestBuilder)
             debugLogger.log("$url API SUCCESS: $response")
+            callback(Callback.Success(response))
             return response
         } catch (e: Exception) {
             debugLogger.log("$url API FAILED: " + e.message)
+            callback(Callback.Failure(message = e.message))
         }
-
         return null
     }
 
