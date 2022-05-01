@@ -1,0 +1,12 @@
+CREATE TABLE KeyValue (
+    keyName TEXT NOT NULL PRIMARY KEY,
+    content TEXT
+);
+
+getKeyValueByKey:
+SELECT keyName, content FROM KeyValue WHERE keyName = ?;
+
+upsertKeyValue {
+    INSERT OR REPLACE INTO KeyValue(keyName, content)
+    VALUES(:keyName, :content);
+}
