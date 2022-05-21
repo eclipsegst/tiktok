@@ -10,6 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.zhaolongzhong.feature.auth.AuthStepState
+import com.zhaolongzhong.feature.auth.AuthViewModel
 import com.zhaolongzhong.feature.auth.navigation.featureAuthGraph
 import com.zhaolongzhong.feature.example.navigation.featureExampleGraph
 import com.zhaolongzhong.tiktok.viewmodel.Screen
@@ -24,15 +26,16 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val model = (application as TApp).model
+        val authViewModel = AuthViewModel()
 
         setContent {
-            MainComposable(model = model)
+            MainComposable(model = model, authViewModel = authViewModel)
         }
     }
 }
 
 @Composable
-fun MainComposable(model: TViewModel) {
+fun MainComposable(model: TViewModel, authViewModel: AuthViewModel) {
     val navigation = model.navigation
 
     when (navigation.screenState.collectAsState().value.screen) {
@@ -55,12 +58,38 @@ fun MainComposable(model: TViewModel) {
         }
     }
 
+    val navHostController = rememberNavController()
+
     NavHost(
-        navController = rememberNavController(),
-        startDestination = "feature-auth",
-        modifier = Modifier.size(width = 300.dp, height = 100.dp)
+        navController = navHostController,
+        startDestination = "feature-welcome",
+        modifier = Modifier.size(width = 300.dp, height = 400.dp)
     ) {
         featureExampleGraph(text = "MainComposable")
-        featureAuthGraph(text = "MainComposable")
+        featureAuthGraph(
+            text = "MainComposable",
+            onOpenSignIn = {
+//                navHostController.navigate(route = "feature-signin")
+                authViewModel.openSignIn()
+            },
+            onSignIn = {
+//                navHostController.navigate(route = "feature-home")
+                authViewModel.signIn("", "")
+            },
+        )
+    }
+
+    val authStepUI = authViewModel.authStepUI.collectAsState()
+
+    when(val value = authStepUI.value) {
+        is AuthStepState.Welcome -> {
+            navHostController.navigate(route = "feature-welcome")
+        }
+        is AuthStepState.SignInScreen -> {
+            navHostController.navigate(route = "feature-signin")
+        }
+        is AuthStepState.Home -> {
+            navHostController.navigate(route = "feature-home")
+        }
     }
 }

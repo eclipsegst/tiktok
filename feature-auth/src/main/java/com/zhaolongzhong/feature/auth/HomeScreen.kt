@@ -7,6 +7,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun SignInView(text: String) {
-    Text(text = "SignInView - $text", modifier = Modifier.background(color = Color.Yellow.copy(alpha = 0.6f)))
+fun HomeScreen(text: String = "home") {
+    Text(text = "Home - $text", modifier = Modifier.background(color = Color.Yellow.copy(alpha = 0.6f)))
 }
