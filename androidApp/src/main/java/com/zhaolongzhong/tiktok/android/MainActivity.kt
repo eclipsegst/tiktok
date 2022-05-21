@@ -12,6 +12,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.zhaolongzhong.feature.auth.navigation.FeatureAuthDestination
+import com.zhaolongzhong.feature.auth.navigation.featureAuthGraph
 import com.zhaolongzhong.feature.example.navigation.FeatureExampleDestination
 import com.zhaolongzhong.feature.example.navigation.featureExampleGraph
 import com.zhaolongzhong.feature.vaccine.navigation.VaccineDestination
@@ -50,9 +52,11 @@ fun MainComposable(model: TViewModel) {
         featureVaccineGraph(model = model) {
             navController.popBackStack()
         }
+        featureAuthGraph {
+            navController.popBackStack()
+        }
     }
 }
-
 fun NavGraphBuilder.playgroundGraph(onClick: (String) -> Unit) {
     composable(route = "playground") {
         Playground(onClick = onClick)
@@ -67,6 +71,9 @@ fun Playground(onClick: (String) -> Unit) {
         }
         Button(onClick = { onClick(VaccineDestination.vaccineList)}) {
             Text(text = "Feature Covid Vaccine")
+        }
+        Button(onClick = { onClick(FeatureAuthDestination.welcome)}) {
+            Text(text = "Feature Auth")
         }
     }
 }

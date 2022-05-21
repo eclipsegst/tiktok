@@ -10,6 +10,7 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":feature-example"))
     implementation(project(":feature-vaccine"))
+    implementation(project(":feature-auth"))
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.compose.ui:ui:$composeVersion")
