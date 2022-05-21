@@ -9,3 +9,4 @@ pluginManagement {
 rootProject.name = "Tiktok"
 include(":androidApp")
 include(":shared")
+include(":feature-example")

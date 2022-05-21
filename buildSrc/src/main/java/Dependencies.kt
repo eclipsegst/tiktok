@@ -11,6 +11,7 @@ object Versions {
     // Compose to Kotlin Compatibility Map:
     // https://developer.android.com/jetpack/androidx/releases/compose-kotlin
     const val composeVersion = "1.1.1"
+    const val navVersion = "2.4.2"
     const val junit = "4.13.2"
     const val kotlin = "1.6.10"
     // https://github.com/ktorio/ktor/releases

@@ -3,8 +3,14 @@ package com.zhaolongzhong.tiktok.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
+import com.zhaolongzhong.feature.example.navigation.featureExampleGraph
 import com.zhaolongzhong.tiktok.viewmodel.Screen
 import com.zhaolongzhong.tiktok.viewmodel.ScreenIdentifier
 import com.zhaolongzhong.tiktok.viewmodel.TViewModel
@@ -46,5 +52,13 @@ fun MainComposable(model: TViewModel) {
                 }
             )
         }
+    }
+
+    NavHost(
+        navController = rememberNavController(),
+        startDestination = "feature-example",
+        modifier = Modifier.size(width = 300.dp, height = 100.dp)
+    ) {
+        featureExampleGraph(text = "MainComposable")
     }
 }
