@@ -2,14 +2,37 @@ import Versions.composeVersion
 import Versions.navVersion
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    compileSdk = 32
+
+    defaultConfig {
+        minSdk = 21
+        targetSdk = 32
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    configureAndroidCompose(this)
+}
+
+fun Project.configureAndroidCompose(
+    commonExtension: com.android.build.api.dsl.CommonExtension<*, *, *, *>,
+) {
+    commonExtension.apply {
+        composeOptions {
+            kotlinCompilerExtensionVersion = composeVersion
+        }
+        buildFeatures {
+            compose = true
+        }
+    }
 }
 
 dependencies {
-    implementation(project(":shared"))
-    implementation(project(":feature-example"))
-    implementation(project(":feature-auth"))
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.compose.ui:ui:$composeVersion")
@@ -23,34 +46,4 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
-}
-
-android {
-    compileSdk = Versions.compileSdkVersion
-    defaultConfig {
-        applicationId = "com.zhaolongzhong.tiktok.android"
-        minSdk = Versions.minSdkVersion
-        targetSdk = Versions.targetSdkVersion
-        versionCode = 1
-        versionName = "1.0"
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-    lint {
-//        isWarningsAsErrors = true
-//        isAbortOnError = true
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = composeVersion
-    }
-    buildFeatures {
-        compose = true
-    }
 }

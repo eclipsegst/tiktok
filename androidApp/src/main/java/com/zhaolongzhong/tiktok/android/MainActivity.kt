@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.zhaolongzhong.feature.auth.navigation.featureAuthGraph
 import com.zhaolongzhong.feature.example.navigation.featureExampleGraph
 import com.zhaolongzhong.tiktok.viewmodel.Screen
 import com.zhaolongzhong.tiktok.viewmodel.ScreenIdentifier
@@ -56,9 +57,10 @@ fun MainComposable(model: TViewModel) {
 
     NavHost(
         navController = rememberNavController(),
-        startDestination = "feature-example",
+        startDestination = "feature-auth",
         modifier = Modifier.size(width = 300.dp, height = 100.dp)
     ) {
         featureExampleGraph(text = "MainComposable")
+        featureAuthGraph(text = "MainComposable")
     }
 }
