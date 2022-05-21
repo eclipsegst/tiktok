@@ -8,9 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun SignInView(onBackClick: () -> Unit = {}) {
+fun HomeScreen(onBackClick: () -> Unit = {}) {
     Column() {
         AuthToolbar(onBackClick = onBackClick)
-        Text(text = "SignInView", modifier = Modifier.background(color = Color.Yellow.copy(alpha = 0.6f)))
+        Text(text = "Home", modifier = Modifier.background(color = Color.Yellow.copy(alpha = 0.6f)))
     }
 }
