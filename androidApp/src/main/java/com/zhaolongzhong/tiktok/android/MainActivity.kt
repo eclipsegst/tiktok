@@ -3,16 +3,19 @@ package com.zhaolongzhong.tiktok.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.zhaolongzhong.feature.example.navigation.FeatureExampleDestination
 import com.zhaolongzhong.feature.example.navigation.featureExampleGraph
-import com.zhaolongzhong.tiktok.viewmodel.Screen
-import com.zhaolongzhong.tiktok.viewmodel.ScreenIdentifier
+import com.zhaolongzhong.feature.vaccine.navigation.VaccineDestination
+import com.zhaolongzhong.feature.vaccine.navigation.featureVaccineGraph
 import com.zhaolongzhong.tiktok.viewmodel.TViewModel
 
 class MainActivity : ComponentActivity() {
@@ -32,33 +35,38 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainComposable(model: TViewModel) {
-    val navigation = model.navigation
-
-    when (navigation.screenState.collectAsState().value.screen) {
-        Screen.List -> {
-            CountriesListScreen(
-                countriesListState = model.stateManager.countryListScreenState.collectAsState().value,
-                onListItemClick = {
-                    navigation.navigate(ScreenIdentifier(screen = Screen.Detail, params = it))
-                },
-                onFavoriteIconClick = { },
-            )
+    val navController = rememberNavController()
+    NavHost(
+        navController = navController,
+        startDestination = "playground",
+        modifier = Modifier
+    ) {
+        playgroundGraph { route ->
+            navController.navigate(route = route)
         }
-        Screen.Detail -> {
-            CountryDetailScreen(
-                countryDetailState = model.stateManager.detailState.collectAsState().value,
-                onDismiss = {
-                    navigation.navigate(ScreenIdentifier(screen = Screen.List))
-                }
-            )
+        featureExampleGraph(text = "MainComposable") {
+            navController.popBackStack()
+        }
+        featureVaccineGraph(model = model) {
+            navController.popBackStack()
         }
     }
+}
 
-    NavHost(
-        navController = rememberNavController(),
-        startDestination = "feature-example",
-        modifier = Modifier.size(width = 300.dp, height = 100.dp)
-    ) {
-        featureExampleGraph(text = "MainComposable")
+fun NavGraphBuilder.playgroundGraph(onClick: (String) -> Unit) {
+    composable(route = "playground") {
+        Playground(onClick = onClick)
+    }
+}
+
+@Composable
+fun Playground(onClick: (String) -> Unit) {
+    Column() {
+        Button(onClick = { onClick(FeatureExampleDestination.featureExample)}) {
+            Text(text = "Feature Example")
+        }
+        Button(onClick = { onClick(VaccineDestination.vaccineList)}) {
+            Text(text = "Feature Covid Vaccine")
+        }
     }
 }

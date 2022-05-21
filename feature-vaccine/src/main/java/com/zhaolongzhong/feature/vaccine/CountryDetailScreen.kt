@@ -1,4 +1,4 @@
-package com.zhaolongzhong.tiktok.android
+package com.zhaolongzhong.feature.vaccine
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

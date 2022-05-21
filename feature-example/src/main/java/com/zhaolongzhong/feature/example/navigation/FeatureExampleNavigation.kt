@@ -4,8 +4,15 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.zhaolongzhong.feature.example.FeatureExampleView
 
-fun NavGraphBuilder.featureExampleGraph(text: String) {
-    composable(route = "feature-example") {
-        FeatureExampleView(text = text)
+object FeatureExampleDestination {
+    const val featureExample = "feature-example"
+}
+
+fun NavGraphBuilder.featureExampleGraph(
+    text: String,
+    onBackClick: () -> Unit = {}
+) {
+    composable(route = FeatureExampleDestination.featureExample) {
+        FeatureExampleView(text = text, onBackClick = onBackClick)
     }
 }
