@@ -11,6 +11,7 @@ dependencies {
     implementation(project(":feature-example"))
     implementation(project(":feature-vaccine"))
     implementation(project(":feature-auth"))
+    implementation(project(":feature-little-red-book"))
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.compose.ui:ui:$composeVersion")

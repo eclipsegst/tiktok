@@ -19,6 +19,8 @@ import com.zhaolongzhong.feature.auth.navigation.FeatureAuthDestination
 import com.zhaolongzhong.feature.auth.navigation.featureAuthGraph
 import com.zhaolongzhong.feature.example.navigation.FeatureExampleDestination
 import com.zhaolongzhong.feature.example.navigation.featureExampleGraph
+import com.zhaolongzhong.feature.little.red.book.navigation.FeatureLittleDestination
+import com.zhaolongzhong.feature.little.red.book.navigation.featureLittleRedBookGraph
 import com.zhaolongzhong.feature.vaccine.navigation.VaccineDestination
 import com.zhaolongzhong.feature.vaccine.navigation.featureVaccineGraph
 import com.zhaolongzhong.tiktok.viewmodel.TViewModel
@@ -64,6 +66,9 @@ fun MainComposable(model: TViewModel, authViewModel: AuthViewModel) {
                 authViewModel.signUp("", "")
             }
         )
+        featureLittleRedBookGraph {
+            navController.popBackStack()
+        }
     }
 
     val authScreenState = authViewModel.authScreenStateUI.collectAsState()
@@ -97,10 +102,13 @@ fun Playground(onClick: (String) -> Unit) {
             Text(text = "Feature Example")
         }
         Button(onClick = { onClick(VaccineDestination.vaccineList)}) {
-            Text(text = "Feature Covid Vaccine")
+            Text(text = "Covid Vaccine")
         }
         Button(onClick = { onClick(FeatureAuthDestination.welcome)}) {
-            Text(text = "Feature Auth")
+            Text(text = "Auth")
+        }
+        Button(onClick = { onClick(FeatureLittleDestination.app)}) {
+            Text(text = "Little Red Book")
         }
     }
 }
