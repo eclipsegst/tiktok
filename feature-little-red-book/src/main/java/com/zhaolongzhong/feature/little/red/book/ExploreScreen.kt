@@ -1,6 +1,7 @@
 package com.zhaolongzhong.feature.little.red.book
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -9,16 +10,14 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import kotlin.math.ceil
 import kotlin.random.Random
 
@@ -42,18 +41,22 @@ fun ExploreScreen() {
                     backgroundColor = Color.Gray.copy(alpha = 0.6f),
                     modifier = Modifier
                         .padding(4.dp)
-                        .height(height = (Random.nextInt(4, 8) * 30).dp)
+                        .height(height = (Random.nextInt(4, 10) * 30).dp)
                         .fillMaxWidth(),
                     elevation = 3.dp,
                     onClick = {}
                 ) {
-                    Text(
-                        text = list[index - 1].toString(),
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 30.sp,
-                        color = Color(0xFFFFFFFF),
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(16.dp)
+                    Image(
+                        painter = painterResource(
+                            id = if (Random.nextInt(
+                                    1,
+                                    10
+                                ) % 2 == 0
+                            ) R.drawable.plant_1 else R.drawable.plant_2
+                        ),
+                        contentDescription = "Localized description",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }
