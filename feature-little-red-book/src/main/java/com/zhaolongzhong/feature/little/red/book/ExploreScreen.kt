@@ -2,22 +2,39 @@ package com.zhaolongzhong.feature.little.red.book
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlin.math.ceil
 import kotlin.random.Random
 
@@ -38,30 +55,82 @@ fun ExploreScreen() {
         ) {
             list.forEach { index ->
                 Card(
-                    backgroundColor = Color.Gray.copy(alpha = 0.6f),
                     modifier = Modifier
                         .padding(4.dp)
-                        .height(height = (Random.nextInt(4, 10) * 30).dp)
                         .fillMaxWidth(),
                     elevation = 3.dp,
                     onClick = {}
                 ) {
-                    Image(
-                        painter = painterResource(
-                            id = if (Random.nextInt(
-                                    1,
-                                    10
-                                ) % 2 == 0
-                            ) R.drawable.plant_1 else R.drawable.plant_2
-                        ),
-                        contentDescription = "Localized description",
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier.fillMaxWidth()
-                    )
+                    Column(modifier = Modifier) {
+                        Image(
+                            painter = painterResource(
+                                id = if (Random.nextInt(
+                                        1,
+                                        10
+                                    ) % 2 == 0
+                                ) R.drawable.plant_1 else R.drawable.plant_2
+                            ),
+                            contentDescription = "Localized description",
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(height = (Random.nextInt(4, 10) * 30).dp)
+                        )
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Text(
+                            modifier = Modifier.padding(start = 6.dp),
+                            text ="This is a title",
+                            color = Color.Black,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.SemiBold,
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Row(modifier = Modifier.padding(start = 6.dp, end = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+                            Image(
+                                painter = painterResource(R.drawable.plant_1),
+                                contentDescription = "avatar",
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier
+                                    .size(24.dp)
+                                    .clip(CircleShape)
+                                    .border(1.dp, Color.Gray, CircleShape)
+                            )
+                            Spacer(modifier = Modifier.width(5.dp))
+                            Text(
+                                "I'm a username hello world",
+                                color = Color.DarkGray,
+                                fontSize = 12.sp,
+                                modifier = Modifier.widthIn(min = 60.dp, max = 80.dp),
+                                overflow = TextOverflow.Ellipsis,
+                                maxLines = 1
+                            )
+                            Spacer(modifier = Modifier.weight(1f))
+                            Icon(
+                                modifier = Modifier.size(14.dp),
+                                imageVector = Icons.Outlined.FavoriteBorder,
+                                contentDescription = "favorite",
+                                tint = Color.LightGray
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                "2481",
+                                color = Color.DarkGray,
+                                fontSize = 12.sp,
+                                modifier = Modifier
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(10.dp))
+                    }
                 }
             }
         }
     }
+}
+
+@Composable
+@Preview
+fun ExploreScreen_Preview() {
+    ExploreScreen()
 }
 
 /**
