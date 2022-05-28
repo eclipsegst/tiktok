@@ -23,7 +23,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.zhaolongzhong.feature.little.red.book.bottombar.AppBottomBar
 import com.zhaolongzhong.feature.little.red.book.bottombar.TabScreen
-import com.zhaolongzhong.feature.little.red.book.screens.HomeScreen
+import com.zhaolongzhong.feature.little.red.book.screens.ProfileScreen
+import com.zhaolongzhong.feature.little.red.book.screens.home.HomeScreen
 
 @Composable
 fun LittleRedBookApp(
@@ -85,7 +86,7 @@ private fun MainTabScreen() {
                     Text(text = "Messages")
                 }
                 composable(TabScreen.Me.route) {
-                    Text(text = "Me")
+                    ProfileScreen()
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.zhaolongzhong.feature.little.red.book
+package com.zhaolongzhong.feature.little.red.book.screens.home
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -35,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zhaolongzhong.feature.little.red.book.R
 import kotlin.math.ceil
 import kotlin.random.Random
 

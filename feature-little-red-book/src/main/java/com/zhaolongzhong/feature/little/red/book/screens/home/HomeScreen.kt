@@ -1,4 +1,4 @@
-package com.zhaolongzhong.feature.little.red.book.screens
+package com.zhaolongzhong.feature.little.red.book.screens.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -21,9 +21,6 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
 import com.google.accompanist.pager.rememberPagerState
-import com.zhaolongzhong.feature.little.red.book.ExploreScreen
-import com.zhaolongzhong.feature.little.red.book.FollowScreen
-import com.zhaolongzhong.feature.little.red.book.NearbyScreen
 import kotlinx.coroutines.launch
 
 enum class LittleRedBookTab(val tabName: String) {
